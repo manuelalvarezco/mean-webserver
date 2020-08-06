@@ -2,6 +2,10 @@ require('./config/config.js')
 
 const express = require('express')
 const mongoose = require('mongoose');
+
+const path = require('path');
+
+
 const app = express()
 
 const bodyParser = require('body-parser')
@@ -15,7 +19,7 @@ app.use(bodyParser.json())
 
 const cors = require('cors');
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(cors());
 
 
