@@ -22,8 +22,8 @@ const cors = require('cors');
 app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(cors());
 
-
-app.use(require('./routes/users'))
+// GLOBAL CONFIG ROUTES
+app.use(require('./routes/index'))
 
 
 mongoose.connect(process.env.URLDB, {

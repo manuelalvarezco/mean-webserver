@@ -16,3 +16,12 @@ if (process.env.NODE_ENV === 'dev') {
 }
 
 process.env.URLDB = urlDB;
+
+
+// EXPIRED TOKEN
+//{ expiresIn: 60 * 60 * 24 * 30 }
+process.env.EXPIRED_TOKEN = '48h';
+
+
+//SEED
+process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo';
