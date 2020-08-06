@@ -21,6 +21,8 @@ let verifyToken = (req, res, next) => {
     })
 }
 
+
+
 //Verifica AdminRole
 let verifyAdminRole = (req, res, next) => {
 
