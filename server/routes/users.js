@@ -93,8 +93,38 @@ app.put('/users/:id', function(req, res) {
 });
 
 
-app.delete('/users', function(req, res) {
-    res.json('DELETE usuarios');
+app.delete('/users/:id', function(req, res) {
+
+    let id = req.params.id;
+
+    let changeState = {
+        status: false
+    }
+
+    User.findByIdAndUpdate(id, changeState, { new: true }, (err, userDelete) => {
+
+        if (err) {
+            return res.status(400).json({
+                ok: false,
+                err
+            })
+        }
+
+        if (!userDelete) {
+            return res.status(400).json({
+                ok: false,
+                err: {
+                    message: 'Usuario no encontrado'
+                }
+            })
+        }
+
+        res.json({
+            ok: true,
+            usuario: userDelete
+        })
+
+    })
 });
 
 
